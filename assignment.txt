@@ -1,0 +1,24 @@
+Here’s a Python program that reads a text file and counts the number of lowercase letters in each word. The program assumes the file is named input.txt and is located in the same directory as the script.
+Python# Open the text file in read mode
+with open("input.txt", "r") as file:
+    # Read all lines from the file
+    lines = file.readlines()
+
+# Initialize a dictionary to store word and lowercase count
+word_lowercase_count = {}
+
+# Process each line in the file
+for line in lines:
+    # Split the line into words
+    words = line.split()
+    for word in words:
+        # Count lowercase letters in the word
+        lowercase_count = sum(1 for char in word if char.islower())
+        # Store the word and its lowercase count
+        word_lowercase_count[word] = lowercase_count
+
+# Print the results
+print("Word and their lowercase counts:")
+for word, count in word_lowercase_count.items():
+    print(f"{word}: {count}")
+
